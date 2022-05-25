@@ -1,0 +1,45 @@
+<div class="card bg-primary" style="width: 18rem">
+  <div class="card-body">
+    <h5 class="card-title">
+      <input
+        type="text"
+        name="tituloAnotacao"
+        id="tituloAnotacao"
+        [(ngModel)]="notaInsert.tituloNota"
+        placeholder="Some title..."
+        class="form-control"
+      />
+      <span *ngIf="notaInsert.idNota" class="id-hidden">
+        <input type="hidden" name="idNota" [(ngModel)]="notaInsert.idNota" />
+      </span>
+    </h5>
+    <h6 class="card-subtitle mb-2 text-muted">
+      <select
+        name="categoria"
+        id="categoria"
+        [(ngModel)]="notaInsert.categoria.idCategoria"
+        class="form-control"
+      >
+        <option value="">Categoria...</option>
+        <option
+          *ngFor="let cat of categoriasList | async"
+          value="{{ cat.idCategoria }}"
+        >
+          {{ cat.descricaoCategoria }}
+        </option>
+      </select>
+    </h6>
+    <p class="card-text">
+      <input
+        type="text"
+        name="textoAnotacao"
+        id="textoAnotacao"
+        [(ngModel)]="notaInsert.textoAnotacao"
+        placeholder="Some text..."
+        class="form-control"
+      />
+    </p>
+    <button (click)="save()" class="btn btn-sm btn-success">Salvar</button>
+    <button (click)="cancel()" class="btn btn-sm btn-danger">Cancelar</button>
+  </div>
+</div>

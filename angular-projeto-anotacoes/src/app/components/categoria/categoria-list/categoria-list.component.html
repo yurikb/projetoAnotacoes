@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col">
+    <a routerLink="/categoria-add" class="btn btn-success"> &plus; Adicionar </a>
+    <hr>
+  </div>
+</div>
+<div class="row">
+  <ul class="list-group col-12">
+    <li *ngFor="let categoria of listaCategorias | async"
+        class="list-group-item d-flex justify-content-between">
+      <span class="badge badge-dark" > {{categoria.idCategoria}} </span>
+      <span>{{categoria.descricaoCategoria}} </span>
+      <div class="row">
+        <div class="col-8">
+          <div class="custom-control custom-switch">
+            <div [ngSwitch]="categoria.flAtivo">
+              <div *ngSwitchCase="true">
+                <input type="checkbox" checked="checked"
+                (change)="toggleAtivo(categoria.idCategoria)"
+                class="custom-control-input" id="flAtivo_{{categoria.idCategoria}}">
+                <label class="custom-control-label" for="flAtivo_{{categoria.idCategoria}}">Ativo</label>
+              </div>
+              <div *ngSwitchCase="false">
+                <input type="checkbox"
+                (change)="toggleAtivo(categoria.idCategoria)"
+                class="custom-control-input" id="flAtivo_{{categoria.idCategoria}}">
+                <label class="custom-control-label" for="flAtivo_{{categoria.idCategoria}}">Ativar</label>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-4">
+          <span class="text-danger">
+            <button (click)="delete(categoria.idCategoria)"
+                  class="btn btn-danger font-weight-bold"> &times; </button>
+          </span>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

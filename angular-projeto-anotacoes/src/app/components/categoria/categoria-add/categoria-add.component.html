@@ -1,0 +1,37 @@
+<div *ngIf="msgRetorno | async" class="row">
+  <div class="col">
+    <div class="alert alert-success" role="alert">
+      Categoria <b>#{{formCategoria.idCategoria}} - {{formCategoria.descricaoCategoria}}</b> criada com sucesso!
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <h2 class="text-primary font-weight-bold" >Criar Categoria</h2>
+    <hr>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <input type="text"
+          [(ngModel)]="formCategoria.descricaoCategoria"
+          name="descricaoCategoria"
+          id="descricaoCategoria"
+          placeholder="Categoria"
+          class="form-control">
+  </div>
+  <div class="col">
+    <div class="custom-control custom-switch">
+      <input type="checkbox"
+             class="custom-control-input"
+             id="flAtivo"
+             name="flAtivo"
+             [(ngModel)]="formCategoria.flAtivo">
+      <label class="custom-control-label" for="flAtivo">Ativo</label>
+    </div>
+  </div>
+  <div class="col">
+    <button class="btn btn-sm btn-success" (click)="save()" >Salvar</button>
+  </div>
+</div>

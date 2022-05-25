@@ -1,0 +1,28 @@
+#quadro {
+  min-height: 30vh;
+}
+
+.bg-quadro{
+  background-color: rgb(107, 210, 247);
+}
+
+.bg-nota{
+  background-color: rgb(240, 254, 77);
+}
+
+.btn-circle {
+  font-weight: 800;
+  width: 50px;
+  height: 50px;
+  // padding: 13px 18px;
+  border-radius: 60px;
+  font-size: 24px;
+  text-align: center;
+  line-height: 20px;
+}
+
+.plus-btn {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+}
